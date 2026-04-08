@@ -1,6 +1,6 @@
 # Smart Study Web App
 
-# test just 2
+# test Professor
 
 ## Team Members
 - Turarbekova Dinara
