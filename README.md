@@ -1,6 +1,6 @@
 # Smart Study Web App
 
-# test Dinara
+# test just
 
 ## Team Members
 - Turarbekova Dinara
