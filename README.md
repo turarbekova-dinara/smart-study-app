@@ -1,6 +1,6 @@
 # Smart Study Web App
 
-# test just 2
+# test Akniet
 
 ## Team Members
 - Turarbekova Dinara
