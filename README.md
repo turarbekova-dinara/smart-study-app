@@ -1,5 +1,7 @@
 # Smart Study Web App
 
+# test github
+
 ## Team Members
 - Turarbekova Dinara
 - Kuntubay Assylzhan
