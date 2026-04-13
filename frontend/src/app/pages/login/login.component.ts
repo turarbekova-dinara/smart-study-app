@@ -7,17 +7,18 @@ import { Router } from '@angular/router';
   selector: 'app-login',
   standalone: true,
   imports: [FormsModule],
-  templateUrl: './login.component.html'
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
 
-  username = '';
-  password = '';
+  username: string = '';
+  password: string = '';
 
   constructor(private auth: AuthService, private router: Router) {}
 
-  login() {
-    localStorage.setItem('user', this.username);
+  login(): void {
+    localStorage.setItem('isLoggedIn', 'true');
     this.router.navigate(['/todo']);
   }
 }

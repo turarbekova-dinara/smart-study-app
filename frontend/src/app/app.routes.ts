@@ -12,5 +12,10 @@ export const routes: Routes = [
   { path: 'notes', component: NotesComponent },
   { path: 'calendar', component: CalendarComponent },
   { path: 'music', component: MusicComponent },
-  { path: '', redirectTo: 'login', pathMatch: 'full' }
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  }
 ];
