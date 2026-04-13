@@ -1,11 +1,14 @@
-<div class="layout">
+<div style="display: flex; height: 100vh;">
 
-  <app-sidebar></app-sidebar>
+  <!-- Sidebar -->
+  <app-sidebar *ngIf="isLoggedIn()" style="width: 200px;"></app-sidebar>
 
-  <div class="main">
+  <!-- Main -->
+  <div style="flex: 1; padding: 20px;">
     <router-outlet></router-outlet>
   </div>
 
-  <app-right-panel></app-right-panel>
+  <!-- Right Panel -->
+  <app-right-panel *ngIf="isLoggedIn()" style="width: 250px;"></app-right-panel>
 
 </div>
