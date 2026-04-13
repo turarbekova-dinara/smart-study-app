@@ -1,0 +1,11 @@
+<h2>Todo</h2>
+
+<input [(ngModel)]="task">
+<button (click)="addTask()">Add</button>
+
+<ul>
+  <li *ngFor="let t of tasks">
+    {{t.title}}
+    <button (click)="deleteTask(t.id)">X</button>
+  </li>
+</ul>

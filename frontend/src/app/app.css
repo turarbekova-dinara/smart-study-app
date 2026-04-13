@@ -1,0 +1,20 @@
+.layout {
+  display: flex;
+  height: 100vh;
+}
+
+app-sidebar {
+  width: 220px;
+  background: #1e1e2f;
+  color: white;
+}
+
+.main {
+  flex: 1;
+  padding: 20px;
+}
+
+app-right-panel {
+  width: 250px;
+  background: #f5f5f5;
+}
