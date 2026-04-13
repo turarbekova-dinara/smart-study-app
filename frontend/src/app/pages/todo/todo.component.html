@@ -9,3 +9,17 @@
     <button (click)="deleteTask(t.id)">X</button>
   </li>
 </ul>
+
+<div class="todo-box">
+  <h2>My Tasks</h2>
+
+  <input [(ngModel)]="task" placeholder="Write task...">
+  <button (click)="addTask()">Add</button>
+
+  <ul>
+    <li *ngFor="let t of tasks">
+      {{t.title}}
+      <button (click)="deleteTask(t.id)">❌</button>
+    </li>
+  </ul>
+</div>

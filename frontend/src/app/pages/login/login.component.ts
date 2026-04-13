@@ -17,10 +17,7 @@ export class LoginComponent {
   constructor(private auth: AuthService, private router: Router) {}
 
   login() {
-    this.auth.login(this.username, this.password)
-      .subscribe((res: any) => {
-        localStorage.setItem('token', res.token);
-        this.router.navigate(['/todo']);
-      });
+    localStorage.setItem('user', this.username);
+    this.router.navigate(['/todo']);
   }
 }
