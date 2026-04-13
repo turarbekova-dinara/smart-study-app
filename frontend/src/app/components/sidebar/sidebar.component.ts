@@ -12,7 +12,7 @@ export class SidebarComponent {
   constructor(private router: Router) {}
 
   logout() {
-    localStorage.removeItem('user');
+    localStorage.removeItem('isLoggedIn');
     this.router.navigate(['/login']);
   }
 }

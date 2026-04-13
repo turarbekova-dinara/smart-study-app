@@ -1,5 +1,13 @@
 body {
   margin: 0;
-  font-family: Arial;
   background-size: cover;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100%;
 }
