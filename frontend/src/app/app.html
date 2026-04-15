@@ -1,15 +1,1 @@
-<div *ngIf="isLoggedIn(); else loginPage" style="display: flex; height: 100vh;">
-
-  <app-sidebar style="width: 200px;"></app-sidebar>
-
-  <div style="flex: 1; padding: 20px;">
-    <router-outlet></router-outlet>
-  </div>
-
-  <app-right-panel style="width: 250px;"></app-right-panel>
-
-</div>
-
-<ng-template #loginPage>
-  <router-outlet></router-outlet>
-</ng-template>
+<router-outlet></router-outlet>

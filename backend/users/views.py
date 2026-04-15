@@ -1,30 +1,46 @@
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
-from django.http import JsonResponse
-import json
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework.authtoken.models import Token
 
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.decorators import permission_classes
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def logout(request):
+  request.user.auth_token.delete()
+  return Response({"message": "Logged out"})
+
+
+@api_view(['GET'])
+def test(request):
+  return Response({"msg": "ok"})
+
+@api_view(['POST'])
 def register(request):
-  if request.method == 'POST':
-    data = json.loads(request.body)
+  username = request.data['username']
+  password = request.data['password']
 
-    User.objects.create_user(
-      username=data['username'],
-      password=data['password']
-    )
+  user = User.objects.create_user(
+    username=username,
+    password=password
+  )
 
-    return JsonResponse({'status': 'ok'})
+  return Response({
+    "message": "User created"
+})
 
-
+@api_view(['POST'])
 def login(request):
-  if request.method == 'POST':
-    data = json.loads(request.body)
+  username = request.data['username']
+  password = request.data['password']
 
-    user = authenticate(
-      username=data['username'],
-      password=data['password']
-    )
+  user = authenticate(username=username, password=password)
 
-    if user:
-      return JsonResponse({'status': 'ok'})
-    else:
-      return JsonResponse({'status': 'error'})
+  if user:
+    token, created = Token.objects.get_or_create(user=user)
+    return Response({"token": token.key})
+  else:
+    return Response({"error": "Invalid credentials"})

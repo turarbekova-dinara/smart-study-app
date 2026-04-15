@@ -16,7 +16,8 @@ class Task(models.Model):
 
 # 2. Note model
 class Note(models.Model):
-  user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+  user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='api_tasks')
   content = models.TextField()
   created_at = models.DateTimeField(auto_now_add=True)
 

@@ -85,7 +85,7 @@ def login_view(request):
 
   return Response({'error': 'Invalid credentials'}, status=400)
 
-@api_view(['POST'])
+@api_view(['POST', 'GET'])
 def register_view(request):
   username = request.data.get('username')
   password = request.data.get('password')
@@ -96,6 +96,13 @@ def register_view(request):
   user = User.objects.create_user(username=username, password=password)
   token = Token.objects.create(user=user)
 
+
   return Response({
     'token': token.key
   })
+
+
+def perform_create(self, serializer):
+  serializer.save(user=self.request.user)
+
+

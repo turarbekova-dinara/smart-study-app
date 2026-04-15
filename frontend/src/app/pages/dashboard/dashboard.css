@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+app-sidebar {
+  width: 20%;
+}
+
+.center {
+  width: 60%;
+}
+
+app-right-panel {
+  width: 20%;
+}

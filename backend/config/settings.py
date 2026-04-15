@@ -20,7 +20,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'api',
-    'tasks',
+    'tasks.apps.TasksConfig',
     'users',
     'rest_framework.authtoken'
 ]
