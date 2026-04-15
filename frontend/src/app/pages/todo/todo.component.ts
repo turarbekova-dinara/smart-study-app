@@ -1,41 +1,41 @@
 import { Component, OnInit } from '@angular/core';
-import { TodoService } from '../../services/todo.service';
-import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { TaskService } from '../../services/task.service';
 
 @Component({
   selector: 'app-todo',
-  standalone: true,
-  imports: [FormsModule, CommonModule],
   templateUrl: './todo.component.html'
 })
 export class TodoComponent implements OnInit {
-
   tasks: any[] = [];
-  task = '';
+  newTask: string = '';
 
-  constructor(private todoService: TodoService) {}
+  constructor(private taskService: TaskService) {}
 
-  ngOnInit() {
-    this.load();
+  ngOnInit(): void {
+    this.loadTasks();
   }
 
-  load() {
-    this.todoService.getTasks().subscribe((data: any) => {
+  loadTasks() {
+    this.taskService.getTasks().subscribe((data: any) => {
       this.tasks = data;
     });
   }
 
   addTask() {
-    this.todoService.addTask(this.task).subscribe(() => {
-      this.load();
-      this.task = '';
+    if (!this.newTask.trim()) return;
+
+    this.taskService.addTask({
+      title: this.newTask,
+      completed: false
+    }).subscribe((res: any) => {
+      this.tasks.push(res);
+      this.newTask = '';
     });
   }
 
   deleteTask(id: number) {
-    this.todoService.deleteTask(id).subscribe(() => {
-      this.load();
+    this.taskService.deleteTask(id).subscribe(() => {
+      this.loadTasks();
     });
   }
 }

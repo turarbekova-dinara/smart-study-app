@@ -1,5 +1,54 @@
-.todo-box {
-  background: rgba(255,255,255,0.8);
-  padding: 20px;
+.container {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(135deg, #153677, #4e085f);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.todo-app {
+  background: #fff;
+  padding: 30px;
   border-radius: 10px;
+  width: 400px;
+}
+
+.todo-app h1 {
+  margin-bottom: 20px;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.row input {
+  flex: 1;
+  padding: 10px;
+}
+
+.row button {
+  padding: 10px;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background: #eee;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+li span {
+  cursor: pointer;
+  color: red;
 }

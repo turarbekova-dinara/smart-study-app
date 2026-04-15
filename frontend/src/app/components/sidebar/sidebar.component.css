@@ -15,3 +15,8 @@
 .sidebar a:hover {
   color: #00ffcc;
 }
+
+a {
+  display: block;
+  margin-bottom: 10px;
+}
