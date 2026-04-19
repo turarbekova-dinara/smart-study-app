@@ -1,6 +1,7 @@
 from django.urls import path
-from .views import get_events
+from .views import EventList, EventDetail
 
 urlpatterns = [
-  path('', get_events),
+  path('', EventList.as_view()),
+  path('<int:pk>/',EventDetail.as_view()),
 ]

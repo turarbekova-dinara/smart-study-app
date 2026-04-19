@@ -1,11 +1,12 @@
 import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
-
+import {AppComponent} from './app.component';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { ApplicationConfig } from '@angular/core';
 
 
 
-export const appConfig = {
+export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
     provideHttpClient(
