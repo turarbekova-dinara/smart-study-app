@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../../services/task.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-todo',
+  imports: [
+    FormsModule
+  ],
   templateUrl: './todo.component.html'
 })
 export class TodoComponent implements OnInit {
