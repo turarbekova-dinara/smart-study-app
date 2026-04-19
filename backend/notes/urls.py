@@ -1,6 +1,7 @@
 from django.urls import path
-from .views import get_notes
+from .views import notes_list, delete_note
 
 urlpatterns = [
-  path('', get_notes),
+  path('', notes_list),
+  path('<int:pk>/', delete_note)
 ]

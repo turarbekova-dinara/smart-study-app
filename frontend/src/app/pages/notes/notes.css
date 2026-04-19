@@ -1,0 +1,26 @@
+
+.lecture{
+  margin-bottom:30px;
+}
+
+input{
+  width:100%;
+  padding:10px;
+  margin-bottom:10px;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
+
+button{
+  background:#ff4da6;
+  color:white;
+  border:none;
+  padding:10px 15px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.lecture-viewer{
+  margin-top:20px;
+  border:1px solid #ddd;
+}
