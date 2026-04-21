@@ -1,8 +1,10 @@
 from django.urls import path
-from .views import TaskListCreate, TaskUpdateDelete
+from .views import *
 
 urlpatterns = [
-  path('tasks/', TaskListCreate.as_view()),
-  path('tasks/<int:pk>/', TaskUpdateDelete.as_view()),
-]
 
+  path("tasks/",tasks),
+  path("tasks/add/",add_task),
+  path("tasks/update/<int:id>/",update_task),
+  path("tasks/delete/<int:id>/",delete_task)
+]
