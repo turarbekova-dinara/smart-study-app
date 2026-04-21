@@ -1,1 +1,16 @@
-<router-outlet></router-outlet>
+@if (isLoginPage()) {
+  <router-outlet></router-outlet>
+}
+@else {
+  <div style="display: flex; height: 100vh; overflow: hidden;">
+
+    <app-sidebar style="width: 200px;"></app-sidebar>
+
+    <div style="flex: 1; padding: 20px; overflow-y: auto;">
+      <router-outlet></router-outlet>
+    </div>
+
+    <app-right-panel style="width: 40vw;"></app-right-panel>
+
+  </div>
+}
