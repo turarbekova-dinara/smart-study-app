@@ -1,50 +1,9 @@
-# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
-
-# Compiled output
-/dist
-/tmp
-/out-tsc
-/bazel-out
-
-# Node
-/node_modules
-npm-debug.log
-yarn-error.log
-
-# IDEs and editors
-.idea/
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
-
-# Visual Studio Code
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-!.vscode/mcp.json
-.history/*
-
-# Miscellaneous
-/.angular/cache
-.sass-cache/
-/connect.lock
-/coverage
-/libpeerconnection.log
-testem.log
-/typings
-__screenshots__/
-
-# System files
-.DS_Store
-Thumbs.db
-
+‣敓⁥瑨灴㩳⼯潤獣朮瑩畨⹢潣⽭敧⵴瑳牡整⽤敧瑴湩ⵧ瑳牡整ⵤ楷桴札瑩椯湧牯湩ⵧ楦敬⁳潦⁲潭敲愠潢瑵椠湧牯湩⁧楦敬⹳਍਍‣潃灭汩摥漠瑵異൴⼊楤瑳਍琯灭਍漯瑵琭捳਍戯穡汥漭瑵਍਍‣潎敤਍港摯彥潭畤敬൳渊浰搭扥杵氮杯਍慹湲攭牲牯氮杯਍਍‣䑉獅愠摮攠楤潴獲਍椮敤⽡਍瀮潲敪瑣਍挮慬獳慰桴਍挮⼹਍⸪慬湵档਍献瑥楴杮⽳਍⸪畳汢浩ⵥ潷歲灳捡൥ഊ⌊嘠獩慵⁬瑓摵潩䌠摯൥⸊獶潣敤⨯਍⸡獶潣敤猯瑥楴杮⹳獪湯਍⸡獶潣敤琯獡獫樮潳൮ℊ瘮捳摯⽥慬湵档樮潳൮ℊ瘮捳摯⽥硥整獮潩獮樮潳൮ℊ瘮捳摯⽥捭⹰獪湯਍栮獩潴祲⨯਍਍‣楍捳汥慬敮畯൳⼊愮杮汵牡振捡敨਍献獡⵳慣档⽥਍振湯敮瑣氮捯൫⼊潣敶慲敧਍氯扩数牥潣湮捥楴湯氮杯਍整瑳浥氮杯਍琯灹湩獧਍彟捳敲湥桳瑯彳⽟਍਍‣祓瑳浥映汩獥਍䐮当瑓牯൥吊畨扭⹳扤਍਍潮敤浟摯汵獥യ瘊湥⽶਍彟祰慣档彥⽟਍扤献汱瑩㍥਍攮癮਍
 node_modules/
-venv/
+.angular/
+dist/
 __pycache__/
-db.sqlite3
+*.pyc
 .env
+frontend/node_modules/
+frontend/.angular/
