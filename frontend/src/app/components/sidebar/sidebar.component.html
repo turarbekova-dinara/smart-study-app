@@ -1,7 +1,32 @@
-<button (click)="logout()">Logout</button>
+<div class="sidebar">
 
-<a routerLink="/dashboard/todo">Todo</a>
-<a routerLink="/dashboard/notes">Notes</a>
-<a routerLink="/dashboard/calendar">Calendar</a>
-<a routerLink="/dashboard/music">Music</a>
+  <div class="logo">
+    <span>&lt;/&gt;</span> Smart Study
+  </div>
 
+  <a routerLink="/dashboard/todo" routerLinkActive="active">
+    <i class="fas fa-home"></i> Todo
+  </a>
+
+  <a routerLink="/dashboard/notes" routerLinkActive="active">
+    <i class="fas fa-user"></i> Notes
+  </a>
+
+  <a routerLink="/dashboard/calendar" routerLinkActive="active">
+    <i class="fas fa-calendar"></i> Calendar
+  </a>
+
+  <a routerLink="/dashboard/music" routerLinkActive="active">
+    <i class="fas fa-music"></i> Music
+  </a>
+
+  <a routerLink="/dashboard/online-course" routerLinkActive="active">
+    <i class="fas fa-course"></i> Online-Course
+  </a>
+
+
+  <a class="logout" (click)="logout()">
+    Logout
+  </a>
+
+</div>

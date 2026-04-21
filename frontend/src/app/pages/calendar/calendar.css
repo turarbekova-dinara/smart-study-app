@@ -20,7 +20,9 @@
 }
 
 .fc-button:hover {
-  background-color: #4338ca !important;
+  width: 70px;
+  background: url('/assets/fon.jpg') no-repeat;
+  padding: 150px;
 }
 
 .fc-button-primary {

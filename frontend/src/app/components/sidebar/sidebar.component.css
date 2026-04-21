@@ -1,22 +1,75 @@
 .sidebar {
-  height: 100%;
-  padding: 20px;
-  background: rgba(0,0,0,0.7);
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 250px;
+  height: 100vh;
+  background: url('/assets/fon.jpg') no-repeat;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+}
+/* LOGO */
+.logo {
   color: white;
+  font-size: 20px;
+  padding: 20px;
+  font-weight: bold;
+}
+.sidebar a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 12px 20px;
+  color: #ccc;
+  text-decoration: none;
+
+  transition: 0.3s;
+  border-radius: 8px;
 }
 
-.sidebar a {
-  display: block;
-  margin: 10px 0;
-  color: white;
-  text-decoration: none;
+.sidebar a i {
+  font-size: 18px;
 }
 
 .sidebar a:hover {
-  color: #00ffcc;
+  background: #b76bf2;
+  color: white;
+  transform: translateX(5px);
 }
 
-a {
-  display: block;
-  margin-bottom: 10px;
+.sidebar a.active {
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  color: white;
+}
+
+/* LOGOUT */
+.logout {
+  margin-top: auto;
+  background: #29293d;
+}
+
+.logout:hover {
+  background: #ff4d4d;
+}
+
+.sidebar a {
+  position: relative;
+  overflow: hidden;
+}
+
+.sidebar a::before {
+  content: "";
+  position: absolute;
+  left: -100%;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, #60119c, transparent);
+  transition: 0.5s;
+}
+
+.sidebar a:hover::before {
+  left: 100%;
 }

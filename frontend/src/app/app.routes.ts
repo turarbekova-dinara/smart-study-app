@@ -10,15 +10,19 @@ import { RegisterComponent } from './pages/register/register.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
+
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'dashboard', component: DashboardComponent, children: [
+
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    children: [
+      { path: '', redirectTo: 'todo', pathMatch: 'full' },
       { path: 'todo', component: TodoComponent },
       { path: 'notes', component: NotesComponent },
       { path: 'calendar', component: CalendarComponent },
       { path: 'music', component: MusicComponent },
     ]
-  },
-
-  { path: '', redirectTo: 'login', pathMatch: 'full' }
+  }
 ];

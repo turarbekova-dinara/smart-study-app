@@ -32,6 +32,11 @@ export class LoginComponent {
   }
 
   login(): void {
+    if (!this.username || !this.password) {
+      alert('Please enter your username and password');
+      return;
+    }
+
     this.http.post<any>('http://127.0.0.1:8000/api/login/', {
       username: this.username,
       password: this.password
