@@ -1,0 +1,7 @@
+$kind: http-request
+name: updatetask
+url: http://127.0.0.1:8000/api/tasks/update/3/
+method: PUT
+headers:
+  Authorization: Token 9c92bfd08298c784b236c062e607e9b8f1104d62
+order: 4347845671978026
