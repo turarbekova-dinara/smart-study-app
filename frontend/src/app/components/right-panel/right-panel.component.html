@@ -1,30 +1,25 @@
 <div class="timer-widget" [class.expanded]="isExpanded">
 
-  <!-- свёрнутый вид -->
   <div class="timer-collapsed" (click)="toggleExpand()">
     <span class="timer-icon">🍅</span>
     <span class="timer-time">{{display}}</span>
     <span class="timer-arrow">{{ isExpanded ? '▲' : '▼' }}</span>
   </div>
 
-  <!-- развёрнутый вид -->
   <div class="timer-body" *ngIf="isExpanded">
     <div class="timer-label">{{ isBreak ? '☕ Break' : '📚 Work' }}</div>
 
-    <!-- прогресс бар -->
     <div class="progress-bar">
       <div class="progress-fill" [style.width.%]="progress"></div>
     </div>
 
     <div class="timer-big">{{display}}</div>
 
-    <!-- кнопки -->
     <div class="timer-controls">
       <button (click)="startStop()">{{ isRunning ? 'Pause' : 'Start' }}</button>
       <button (click)="reset()">Reset</button>
     </div>
 
-    <!-- настройки -->
     <div class="timer-settings">
       <div class="setting-row">
         <label>Work (min)</label>
