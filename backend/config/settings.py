@@ -16,17 +16,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'tasks',
     'notes',
     'calendar_app',
     'rest_framework',
     'corsheaders',
     'api',
-    'rest_framework',
-    'corsheaders',
-    'tasks',
-    'notes',
-    'calendar_app',
+    'tasks.apps.TasksConfig',
+    'users',
+    'rest_framework.authtoken'
 ]
 
 REST_FRAMEWORK = {

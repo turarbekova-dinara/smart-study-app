@@ -1,0 +1,8 @@
+$kind: http-request
+name: deletetask
+url: http://127.0.0.1:8000/api/tasks/delete/1/
+method: DELETE
+headers:
+  - key: Authorization
+    value: Token 9c92bfd08298c784b236c062e607e9b8f1104d62
+order: 4489330048398464

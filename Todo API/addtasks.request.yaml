@@ -1,0 +1,10 @@
+$kind: http-request
+name: addtasks
+url: http://127.0.0.1:8000/api/tasks/add/
+method: POST
+headers:
+  Authorization: Token 9c92bfd08298c784b236c062e607e9b8f1104d62
+body:
+  type: json
+  content: '{"title":"Homework"}'
+order: 4159863152768729

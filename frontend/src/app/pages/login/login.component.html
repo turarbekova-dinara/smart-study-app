@@ -1,28 +1,47 @@
-<div class="wrapper">
-  <form>
+<header class="header">
+  <h2 class="logo">Smart Study App</h2>
+
+  <nav class="navigation">
+    <a routerLink="/register">to-do list</a>
+    <a routerLink="/register">notes</a>
+    <a routerLink="/register">calendar</a>
+    <a routerLink="/register">music</a>
+    <a routerLink="/register">online courses</a>
+
+    <button class="btnLogin-popup" (click)="openPopup()">Login</button>
+  </nav>
+</header>
+
+<div class="container">
+  <div class="background"></div>
+
+  <!-- POPUP -->
+  <div class="wrapper" *ngIf="isOpen">
+
+    <span class="icon-close" (click)="closePopup()">X</span>
 
     <h1>Login</h1>
 
     <div class="input-box">
-      <input type="text" placeholder="Username" required>
+      <input type="text" placeholder="Username" [(ngModel)]="username">
     </div>
 
     <div class="input-box">
-      <input type="password" placeholder="Password" required>
+      <input type="password" placeholder="Password" [(ngModel)]="password">
     </div>
 
     <div class="remember-forgot">
-      <label>
-        <input type="checkbox"> Remember me
-      </label>
+      <label><input type="checkbox"> Remember me</label>
       <a href="#">Forgot password?</a>
     </div>
 
-    <button type="button" class="btn" (click)="login()">Login</button>
+    <button class="btn" (click)="login()">Login</button>
 
     <div class="register-link">
-      <p>Don't have an account? <a href="#">Register</a></p>
+      <p>Don't have an account?
+        <a routerLink="/register">Register</a>
+      </p>
     </div>
 
-  </form>
+  </div>
 </div>

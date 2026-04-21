@@ -8,6 +8,9 @@ import { CommonModule } from '@angular/common';
   imports: [RouterModule , CommonModule],
   templateUrl: './sidebar.component.html',
   styleUrl: 'sidebar.component.css',
+  imports: [RouterModule],
+  templateUrl: './sidebar.component.html',
+  styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent {
   showBgPicker=false;
@@ -38,6 +41,7 @@ export class SidebarComponent {
     this.tempSelectedBgUrl = url;
   }
 
+<<<<<<< Akniet
   applyBg() {
     this.selectedBgUrl = this.tempSelectedBgUrl;
     localStorage.setItem('userBackground', this.selectedBgUrl);
@@ -68,6 +72,12 @@ export class SidebarComponent {
   }
   logout() {
     localStorage.removeItem('isLoggedIn');
+=======
+  logout(): void {
+    localStorage.removeItem('token');
+>>>>>>> main
     this.router.navigate(['/login']);
   }
+
 }
+

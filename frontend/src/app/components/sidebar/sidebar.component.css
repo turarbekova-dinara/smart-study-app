@@ -24,6 +24,7 @@
   color: #00ffcc;
 }
 
+<<<<<<< Akniet
 .modal-backdrop {
   position: fixed;
   top: 0;
@@ -152,4 +153,9 @@
 .main-actions {
   display: flex;
   gap: 10px;
+=======
+a {
+  display: block;
+  margin-bottom: 10px;
+>>>>>>> main
 }

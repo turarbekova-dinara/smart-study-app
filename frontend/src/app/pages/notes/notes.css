@@ -1,0 +1,30 @@
+
+.lecture{
+  font-family:  cursive, 'sekuya';
+  font-size: 50px;
+  color: #ec2f77;
+  -webkit-text-stroke:  #e875a1;
+  text-shadow: 4px 4px 0px white;
+}
+
+input{
+  width:100%;
+  padding:10px;
+  margin-bottom:10px;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
+
+button{
+  background:#ff4da6;
+  color:white;
+  border:none;
+  padding:10px 15px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.lecture-viewer{
+  margin-top:20px;
+  border:1px solid #ddd;
+}
