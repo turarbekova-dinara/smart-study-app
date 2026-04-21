@@ -1,42 +1,64 @@
-from rest_framework.views import APIView
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-from rest_framework.permissions import AllowAny
+from django.utils import timezone
+
 from .models import Task
 from .serializers import TaskSerializer
-from rest_framework.permissions import IsAuthenticated
 
-class TaskListCreate(APIView):
-  permission_classes = [IsAuthenticated]
 
-  def get(self, request):
-    tasks = Task.objects.filter(user=request.user)
-    serializer = TaskSerializer(tasks, many=True)
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def tasks(request):
+
+  tasks = Task.objects.filter(user=request.user)
+
+  serializer = TaskSerializer(tasks, many=True)
+
+  return Response(serializer.data)
+
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def add_task(request):
+
+  serializer = TaskSerializer(data=request.data)
+
+  if serializer.is_valid():
+
+    serializer.save(user=request.user)
+
     return Response(serializer.data)
 
-  def post(self, request):
-    data = request.data.copy()
-    data['user'] = request.user.id
 
-    serializer = TaskSerializer(data=data)
-    if serializer.is_valid():
-      serializer.save()
-      return Response(serializer.data)
+@api_view(['PUT'])
+@permission_classes([IsAuthenticated])
+def update_task(request, id):
 
-    return Response(serializer.errors)
+  task = Task.objects.get(id=id)
+
+  completed = request.data.get("completed")
+
+  if completed:
+    task.completed = True
+    task.completed_at = timezone.now()
+  else:
+    task.completed = False
+    task.completed_at = None
+
+  task.save()
+
+  serializer = TaskSerializer(task)
+
+  return Response(serializer.data)
 
 
-class TaskUpdateDelete(APIView):
-  permission_classes = [IsAuthenticated]
+@api_view(['DELETE'])
+@permission_classes([IsAuthenticated])
+def delete_task(request, id):
 
-  def put(self, request, pk):
-    task = Task.objects.get(id=pk)
-    serializer = TaskSerializer(task, data=request.data)
-    if serializer.is_valid():
-      serializer.save()
-      return Response(serializer.data)
-    return Response(serializer.errors)
+  task = Task.objects.get(id=id)
 
-  def delete(self, request, pk):
-    task = Task.objects.get(id=pk)
-    task.delete()
-    return Response({"message": "Deleted"})
+  task.delete()
+
+  return Response({"deleted": True})
