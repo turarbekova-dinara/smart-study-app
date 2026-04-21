@@ -1,19 +1,9 @@
-<h2>Smart Study</h2>
 <button (click)="logout()">Logout</button>
 
-<hr>
-
-<nav class="sidebar-nav">
-  <a routerLink="/todo">ToDo</a><br>
-  <a routerLink="/notes">Notes</a><br>
-  <a routerLink="/calendar">Calendar</a><br>
-  <a routerLink="/music">Music</a><br>
-
-  <a href="javascript:void(0)" (click)="togglePicker()" class="bg-picker-link">
-    Background for studying
-  </a>
-<div class="modal-backdrop" *ngIf="showBgPicker" (click)="cancel()">
-  <div class="modal-content" (click)="$event.stopPropagation()">
+<a routerLink="/dashboard/todo">Todo</a>
+<a routerLink="/dashboard/notes">Notes</a>
+<a routerLink="/dashboard/calendar">Calendar</a>
+<a routerLink="/dashboard/music">Music</a>
 
     <h3>Select background</h3>
 
