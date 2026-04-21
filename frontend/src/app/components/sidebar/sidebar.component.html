@@ -3,9 +3,39 @@
 
 <hr>
 
-<a routerLink="/todo">ToDo</a><br>
-<a routerLink="/notes">Notes</a><br>
-<a routerLink="/calendar">Calendar</a><br>
-<a routerLink="/music">Music</a>
+<nav class="sidebar-nav">
+  <a routerLink="/todo">ToDo</a><br>
+  <a routerLink="/notes">Notes</a><br>
+  <a routerLink="/calendar">Calendar</a><br>
+  <a routerLink="/music">Music</a><br>
 
+  <a href="javascript:void(0)" (click)="togglePicker()" class="bg-picker-link">
+    Background for studying
+  </a>
+<div class="modal-backdrop" *ngIf="showBgPicker" (click)="cancel()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
 
+    <h3>Select background</h3>
+
+    <div class="bg-grid">
+      <div *ngFor="let bg of backgrounds"
+           (click)="selectTemp(bg.url)"
+           class="bg-item"
+           [class.active]="tempSelectedBgUrl === bg.url">
+
+        <img [src]="bg.url" [alt]="bg.name">
+        <span class="bg-name">{{bg.name}}</span>
+      </div>
+    </div>
+
+    <div class="modal-buttons">
+      <button class="btn-reset" (click)="resetBg()">By default</button>
+      <div class="main-actions">
+        <button (click)="cancel()" class="btn-cancel">Cancel</button>
+        <button (click)="applyBg()" class="btn-ok">OK</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+</nav>

@@ -1,7 +1,44 @@
-<h3>Timer</h3>
-<p>{{time}}</p>
-<button (click)="start()">Start</button>
+<div class="timer-widget" [class.expanded]="isExpanded">
+
+  <!-- свёрнутый вид -->
+  <div class="timer-collapsed" (click)="toggleExpand()">
+    <span class="timer-icon">🍅</span>
+    <span class="timer-time">{{display}}</span>
+    <span class="timer-arrow">{{ isExpanded ? '▲' : '▼' }}</span>
+  </div>
+
+  <!-- развёрнутый вид -->
+  <div class="timer-body" *ngIf="isExpanded">
+    <div class="timer-label">{{ isBreak ? '☕ Break' : '📚 Work' }}</div>
+
+    <!-- прогресс бар -->
+    <div class="progress-bar">
+      <div class="progress-fill" [style.width.%]="progress"></div>
+    </div>
+
+    <div class="timer-big">{{display}}</div>
+
+    <!-- кнопки -->
+    <div class="timer-controls">
+      <button (click)="startStop()">{{ isRunning ? 'Pause' : 'Start' }}</button>
+      <button (click)="reset()">Reset</button>
+    </div>
+
+    <!-- настройки -->
+    <div class="timer-settings">
+      <div class="setting-row">
+        <label>Work (min)</label>
+        <input type="number" [(ngModel)]="workMinutes" min="1" max="60"
+               (change)="onSettingsChange()">
+      </div>
+      <div class="setting-row">
+        <label>Break (min)</label>
+        <input type="number" [(ngModel)]="breakMinutes" min="1" max="30"
+               (change)="onSettingsChange()">
+      </div>
+    </div>
+  </div>
+</div>
 
 <hr>
-
 <button (click)="toggle()">Dark Mode</button>
