@@ -1,30 +1,27 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core'
+import { HttpClient } from '@angular/common/http'
 
-@Injectable({ providedIn: 'root' })
-export class TodoService {
+@Injectable({providedIn:'root'})
+export class TodoService{
 
-  API = 'http://localhost:8000/api/tasks/';
+  api = "http://127.0.0.1:8000/api/"
 
-  constructor(private http: HttpClient) {}
+  constructor(private http:HttpClient){}
 
-  headers() {
-    return {
-      headers: new HttpHeaders({
-        Authorization: `Token ${localStorage.getItem('token')}`
-      })
-    };
+  getTasks(){
+    return this.http.get<any[]>(this.api+"tasks/")
   }
 
-  getTasks() {
-    return this.http.get(this.API, this.headers());
+  addTask(task:any){
+    return this.http.post(this.api+"tasks/add/",task)
   }
 
-  addTask(title: string) {
-    return this.http.post(this.API, { title }, this.headers());
+  updateTask(task:any){
+    return this.http.put(this.api+"tasks/update/"+task.id+"/",task)
   }
 
-  deleteTask(id: number) {
-    return this.http.delete(this.API + id + '/', this.headers());
+  deleteTask(id:number){
+    return this.http.delete(this.api+"tasks/delete/"+id+"/")
   }
+
 }

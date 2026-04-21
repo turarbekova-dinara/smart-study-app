@@ -1,15 +1,13 @@
-import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-
 import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../../services/task.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-todo',
-  standalone: true,
-  imports: [FormsModule],
-  templateUrl: './todo.component.html',
-  styleUrls: ['./todo.component.css']
+  imports: [
+    FormsModule
+  ],
+  templateUrl: './todo.component.html'
 })
 export class TodoComponent implements OnInit {
   tasks: any[] = [];
