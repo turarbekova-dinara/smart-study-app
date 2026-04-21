@@ -1,6 +1,10 @@
 
 .lecture{
-  margin-bottom:30px;
+  font-family:  cursive, 'sekuya';
+  font-size: 50px;
+  color: #ec2f77;
+  -webkit-text-stroke:  #e875a1;
+  text-shadow: 4px 4px 0px white;
 }
 
 input{
