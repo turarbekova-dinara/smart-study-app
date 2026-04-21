@@ -1,15 +1,16 @@
-<div *ngIf="isLoggedIn(); else loginPage" style="display: flex; height: 100vh;">
-
-  <app-sidebar style="width: 200px;"></app-sidebar>
-
-  <div style="flex: 1; padding: 20px;">
-    <router-outlet></router-outlet>
-  </div>
-
-  <app-right-panel style="width: 250px;"></app-right-panel>
-
-</div>
-
-<ng-template #loginPage>
+@if (isLoginPage()) {
   <router-outlet></router-outlet>
-</ng-template>
+}
+@else {
+  <div style="display: flex; height: 100vh; overflow: hidden;">
+
+    <app-sidebar style="width: 200px;"></app-sidebar>
+
+    <div style="flex: 1; padding: 20px; overflow-y: auto;">
+      <router-outlet></router-outlet>
+    </div>
+
+    <app-right-panel style="width: 40vw;"></app-right-panel>
+
+  </div>
+}
