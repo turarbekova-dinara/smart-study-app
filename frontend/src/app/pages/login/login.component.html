@@ -1,19 +1,47 @@
-<div class="wrapper">
-  <h1>Login</h1>
+<header class="header">
+  <h2 class="logo">Smart Study App</h2>
 
-  <div class="input-box">
-    <input type="text" placeholder="Username" [(ngModel)]="username">
-    <i class='bx bxs-user'></i>
-  </div>
+  <nav class="navigation">
+    <a routerLink="/register">to-do list</a>
+    <a routerLink="/register">notes</a>
+    <a routerLink="/register">calendar</a>
+    <a routerLink="/register">music</a>
+    <a routerLink="/register">online courses</a>
 
-  <div class="input-box">
-    <input type="password" placeholder="Password" [(ngModel)]="password">
-    <i class='bx bxs-lock-alt'></i>
-  </div>
+    <button class="btnLogin-popup" (click)="openPopup()">Login</button>
+  </nav>
+</header>
 
-  <button class="btn" (click)="login()">Login</button>
+<div class="container">
+  <div class="background"></div>
 
-  <div class="register-link">
-    <p>Don't have an account? <a routerLink="/register">Register</a></p>
+  <!-- POPUP -->
+  <div class="wrapper" *ngIf="isOpen">
+
+    <span class="icon-close" (click)="closePopup()">X</span>
+
+    <h1>Login</h1>
+
+    <div class="input-box">
+      <input type="text" placeholder="Username" [(ngModel)]="username">
+    </div>
+
+    <div class="input-box">
+      <input type="password" placeholder="Password" [(ngModel)]="password">
+    </div>
+
+    <div class="remember-forgot">
+      <label><input type="checkbox"> Remember me</label>
+      <a href="#">Forgot password?</a>
+    </div>
+
+    <button class="btn" (click)="login()">Login</button>
+
+    <div class="register-link">
+      <p>Don't have an account?
+        <a routerLink="/register">Register</a>
+      </p>
+    </div>
+
   </div>
 </div>

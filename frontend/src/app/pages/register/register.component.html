@@ -1,19 +1,40 @@
-<div class="wrapper">
-  <h1>Register</h1>
+<header class="header">
+  <h2 class="logo">Smart Study App</h2>
 
-  <div class="input-box">
-    <input type="text" placeholder="Username" [(ngModel)]="username">
-    <i class='bx bxs-user'></i>
-  </div>
+  <nav class="navigation">
+    <a routerLink="/register">to-do list</a>
+    <a routerLink="/register">notes</a>
+    <a routerLink="/register">calendar</a>
+    <a routerLink="/register">music</a>
+    <a routerLink="/register">online courses</a>
 
-  <div class="input-box">
-    <input type="password" placeholder="Password" [(ngModel)]="password">
-    <i class='bx bxs-lock-alt'></i>
-  </div>
+    <button class="btnLogin-popup" routerLink="/login">Login</button>
+  </nav>
+</header>
 
-  <button class="btn" (click)="register()">Register</button>
+<div class="container">
+  <div class="background"></div>
 
-  <div class="register-link">
-    <p>Already have an account? <a routerLink="/login">Login</a></p>
+  <div class="wrapper">
+    <span class="icon-close" routerLink="/login">X</span>
+
+    <h1>Register</h1>
+
+    <div class="input-box">
+      <input type="text" placeholder="Username" [(ngModel)]="username">
+    </div>
+
+    <div class="input-box">
+      <input type="password" placeholder="Password" [(ngModel)]="password">
+    </div>
+
+    <button class="btn" (click)="register()">Register</button>
+
+    <div class="register-link">
+      <p>Already have an account?
+        <a routerLink="/login">Login</a>
+      </p>
+    </div>
+
   </div>
 </div>

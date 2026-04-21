@@ -1,84 +1,213 @@
-:host {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* BACKGROUND */
+.container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+}
 
-  background: url('/assets/wp.png') no-repeat center center;
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url('/assets/fon.jpg') no-repeat;
   background-size: cover;
+  background-position: center;
+  filter: brightness(0.6);
+  z-index: 1;
 }
 
+/* LOGIN CARD */
 .wrapper {
-  width: 420px;
-  background: transparent;
-  border: 2px solid rgba(255,255,255, .2);
-  backdrop-filter: blur(20px);
-  box-shadow: 0 0 10px rgba(0,0,0,.2);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 350px;
+  padding: 40px;
+  border-radius: 15px;
+
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255,255,255,0.2);
+
+  backdrop-filter: blur(15px);
+  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+
   color: #fff;
-  border-radius: 10px;
-  padding: 30px 40px;
+
+  z-index: 100;
+
+  overflow: hidden;
 }
 
+/* TITLE */
 .wrapper h1 {
-  font-size: 36px;
   text-align: center;
+  margin-bottom: 20px;
 }
 
+/* INPUT */
 .input-box {
   position: relative;
   width: 100%;
-  height: 50px;
-  margin: 30px 0;
+  height: 45px;
+  margin: 20px 0;
 }
 
 .input-box input {
   width: 100%;
   height: 100%;
   background: transparent;
-  border: 2px solid rgba(255,255,255,.2);
-  border-radius: 40px;
-  font-size: 16px;
-  color: #fff;
-  padding: 20px 45px 20px 20px;
+  border: none;
   outline: none;
-}
-
-.input-box input::placeholder {
+  border-bottom: 2px solid #fff;
   color: #fff;
+  padding: 10px;
 }
 
 .input-box i {
   position: absolute;
-  right: 20px;
+  right: 10px;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 20px;
 }
 
+/* REMEMBER */
+.remember-forgot {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+/* BUTTON */
 .btn {
   width: 100%;
   height: 45px;
   background: #fff;
   border: none;
-  border-radius: 40px;
+  border-radius: 10px;
   cursor: pointer;
-  font-size: 16px;
-  color: #333;
-  font-weight: 600;
+  margin-top: 20px;
+  font-weight: bold;
+  transition: 0.3s;
 }
 
+.btn:hover {
+  background: #ddd;
+}
+
+/* REGISTER */
 .register-link {
   text-align: center;
-  margin: 20px 0 15px;
-  font-size: 14px;
+  margin-top: 15px;
 }
 
-.register-link a {
+.header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  padding: 20px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}
+
+.logo {
   color: #fff;
-  font-weight: 600;
-  text-decoration: none;
+  font-size: 24px;
 }
 
-.register-link a:hover {
-  text-decoration: underline;
+.navigation a {
+  position: relative;
+  font-size: 1.1em;
+  color: #fff;
+  text-decoration: none;
+  margin-left: 40px;
+}
+
+/* сызық */
+.navigation a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 3px;
+  background: #fff;
+  border-radius: 5px;
+  transform: scaleX(0);
+  transition: transform .5s;
+}
+
+/* hover */
+.navigation a:hover::after {
+  transform: scaleX(1);
+}
+
+.btnLogin-popup {
+  padding: 8px 20px;
+  border: 2px solid #fff;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+
+.navigation .btnLogin-popup {
+  width: 130px;
+  height: 50px;
+  background: transparent;
+  border: 2px solid #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1em;
+  color: #fff;
+  font-weight: 500;
+  margin-left: 40px;
+  transition: .5s;
+}
+
+.navigation .btnLogin-popup:hover {
+  background: #fff;
+  color: #162938;
+}
+
+.icon-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+}
+
+.wrapper .icon-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  width: 45px;
+  height: 45px;
+
+  background: rgb(136 0 255 / 0.32);
+  color: #fff;
+
+  font-size: 2em;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-bottom-left-radius: 20px;
+
+  cursor: pointer;
+  z-index: 100;
 }
