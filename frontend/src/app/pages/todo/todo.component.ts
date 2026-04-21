@@ -1,45 +1,90 @@
 import { Component, OnInit } from '@angular/core';
-import { TaskService } from '../../services/task.service';
+import { CommonModule, DatePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-todo',
-  imports: [
-    FormsModule
-  ],
-  templateUrl: './todo.component.html'
+  standalone: true,
+  templateUrl: './todo.component.html',
+  styleUrls: ['./todo.component.css'],
+  imports: [CommonModule, FormsModule, DatePipe]
 })
 export class TodoComponent implements OnInit {
-  tasks: any[] = [];
-  newTask: string = '';
 
-  constructor(private taskService: TaskService) {}
+  tasks:any[] = [];
+  newTask = "";
 
-  ngOnInit(): void {
+  constructor(private http: HttpClient) {}
+
+  getHeaders() {
+
+    const token = localStorage.getItem("token");
+
+    return {
+      headers: new HttpHeaders({
+        Authorization: `Token ${token}`
+      })
+    };
+
+  }
+
+  ngOnInit() {
     this.loadTasks();
   }
 
   loadTasks() {
-    this.taskService.getTasks().subscribe((data: any) => {
-      this.tasks = data;
+
+    this.http.get<any[]>(
+      "http://127.0.0.1:8000/api/tasks/",
+      this.getHeaders()
+    ).subscribe(res => {
+      this.tasks = res;
     });
+
   }
 
   addTask() {
-    if (!this.newTask.trim()) return;
 
-    this.taskService.addTask({
-      title: this.newTask,
-      completed: false
-    }).subscribe((res: any) => {
-      this.tasks.push(res);
-      this.newTask = '';
+    if (!this.newTask) return;
+
+    this.http.post(
+      "http://127.0.0.1:8000/api/tasks/add/",
+      { title: this.newTask },
+      this.getHeaders()
+    ).subscribe(() => {
+
+      this.newTask = "";
+      this.loadTasks();
+
     });
+
   }
 
-  deleteTask(id: number) {
-    this.taskService.deleteTask(id).subscribe(() => {
+  toggle(task:any) {
+
+    this.http.put(
+      `http://127.0.0.1:8000/api/tasks/update/${task.id}/`,
+      { completed: !task.completed },
+      this.getHeaders()
+    ).subscribe(() => {
+
+      this.loadTasks();
+
+    });
+
+  }
+
+  deleteTask(task:any) {
+
+    this.http.delete(
+      `http://127.0.0.1:8000/api/tasks/delete/${task.id}/`,
+      this.getHeaders()
+    ).subscribe(() => {
+
       this.loadTasks();
     });
+
   }
+
 }
