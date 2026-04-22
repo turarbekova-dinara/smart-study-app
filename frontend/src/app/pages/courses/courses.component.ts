@@ -14,7 +14,7 @@ export class CoursesComponent {
   courses = [
     {
       title: 'Blockchain Technology',
-      id: 'yubzJw0uiE4', // ID видео (берется из ссылки YouTube)
+      id: 'yubzJw0uiE4',
       category: 'Blockchain'
     },
     {
