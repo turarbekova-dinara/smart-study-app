@@ -15,7 +15,7 @@ urlpatterns = [
     # Остальные пути (notes, tasks и т.д.)
     path('api/tasks/', include('tasks.urls')),
     path('api/notes/', include('notes.urls')),
-    path('api/calendar/', include('calendar_app.urls')),
+    path('api/calendar/', include('calendar_app.urls')),]
 
 urlpatterns = [
   path('admin/', admin.site.urls),

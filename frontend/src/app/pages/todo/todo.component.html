@@ -1,127 +1,7 @@
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@700&display=swap');
-
-  .main-wrapper {
-    min-height: 100vh;
-    background-color: #ffffff;
-    background-image: radial-gradient(#eab9dd 2px, transparent 2px);
-    background-size: 32px 32px;
-    font-family: sans-serif, sekuya;
-    padding: 40px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .main-logo {
-    font-family:  cursive, 'sekuya';
-    font-size: 50px;
-    color: #ec2f77;
-    -webkit-text-stroke: 2px #e875a1;
-    text-shadow: 4px 4px 0px white;
-    margin-bottom: 20px;
-  }
-
-
-  .top-controls {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 40px;
-    justify-content: center;
-    width: 100%;
-  }
-
-  .task-input {
-    padding: 12px 20px;
-    border: 3px solid #ec2f77;
-    border-radius: 20px;
-    font-size: 16px;
-    width: 250px;
-    outline: none;
-    box-shadow: 4px 4px 0px rgba(0,0,0,0.1);
-  }
-
-  .add-btn {
-    background-color: #b8267d !important;
-    color: white !important;
-    border: 3px solid #f4c2d4;
-    padding: 10px 25px;
-    border-radius: 20px;
-    font-family: 'Fredoka One', cursive;
-    cursor: pointer;
-    box-shadow: 4px 4px 0px #ede7eb;
-    display: block !important;
-  }
-
-  .add-btn:active {
-    transform: translate(2px, 2px);
-    box-shadow: 1px 1px 0px #f4c2d4;
-  }
-
-  .container {
-    width: 100%;
-    max-width: 900px;
-    background: #f4c2d4;
-    border: 4px solid #ec2f77;
-    border-radius: 30px;
-    padding: 30px;
-    box-shadow: 10px 10px 0px rgba(0,0,0,0.05);
-  }
-
-
-  .section-header {
-    display: inline-block;
-    padding: 5px 20px;
-    border: 3px solid #2b2b2b;
-    border-radius: 15px;
-    font-family: 'Fredoka One', cursive;
-    margin: 20px 0 15px;
-    text-transform: lowercase;
-  }
-
-  .active-bg { background-color: #76c7b7 !important; }
-  .closed-bg { background-color: #f28482 !important; }
-
-  .table-labels {
-    display: grid;
-    grid-template-columns: 40px 2fr 1fr 1fr 1fr 50px;
-    padding: 10px 20px;
-    font-weight: 700;
-    color: #888;
-    font-size: 14px;
-  }
-
-  .task-row {
-    display: grid;
-    grid-template-columns: 40px 2fr 1fr 1fr 1fr 50px;
-    align-items: center;
-    background: #fff9ed;
-    border: 3px solid #ec2f77;
-    border-radius: 40px;
-    padding: 12px 20px;
-    margin-bottom: 12px;
-    box-shadow: 5px 5px 0px #ffffff;
-  }
-
-  .badge {
-    padding: 4px 12px;
-    border: 2px solid #ec2f77;
-    border-radius: 15px;
-    font-family: 'Fredoka One', cursive;
-    font-size: 12px;
-    text-align: center;
-    display: inline-block;
-  }
-
-  .badge-active { background-color: #76c7b7; }
-  .badge-closed { background-color: #f28482; }
-
-  .del-btn { cursor: pointer; font-size: 20px; }
-</style>
-
 <div class="main-wrapper">
   <header>
     <h1 class="main-logo"> TASK MANAGER </h1>
+
     <div class="top-controls">
       <input class="task-input" [(ngModel)]="newTask" placeholder="new task...">
       <button class="add-btn" (click)="addTask()">+ add</button>
@@ -129,36 +9,64 @@
   </header>
 
   <div class="container">
-    <div class="section-header active-bg"> active</div>
+
+    <div class="section-header active-bg">active</div>
 
     <div class="table-labels">
-      <span></span><span>title</span><span>created</span><span>due</span><span>status</span><span></span>
+      <span></span>
+      <span>title</span>
+      <span>created</span>
+      <span>due</span>
+      <span>status</span>
+      <span></span>
     </div>
 
     <ng-container *ngFor="let task of tasks">
       <div class="task-row" *ngIf="!task.completed">
-        <input type="checkbox" [checked]="task.completed" (change)="toggle(task)">
-        <div style="font-weight: 800;">{{task.title}}</div>
+
+        <input type="checkbox"
+               [checked]="task.completed"
+               (change)="toggle(task)">
+
+        <div class="title">{{task.title}}</div>
+
         <div>{{task.created_at | date:'dd-MM-yyyy'}}</div>
+
         <div>-</div>
-        <div><span class="badge badge-active">active</span></div>
-        <span class="del-btn" (click)="deleteTask(task)"><svg xmlns="http://www.w3.org/2000/svg" height="24px"
-                                                              viewBox="0 -960 960 960" width="24px"
-                                                              fill="#1f1f1f"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg></span>
+
+        <div>
+          <span class="badge badge-active">active</span>
+        </div>
+
+        <span class="del-btn" (click)="deleteTask(task)">🗑</span>
+
       </div>
     </ng-container>
 
-    <div class="section-header closed-bg"> closed</div>
+
+    <div class="section-header closed-bg">closed</div>
 
     <ng-container *ngFor="let task of tasks">
       <div class="task-row" *ngIf="task.completed">
-        <input type="checkbox" [checked]="task.completed" (change)="toggle(task)">
-        <div style="font-weight: 800;">{{task.title}}</div>
+
+        <input type="checkbox"
+               [checked]="task.completed"
+               (change)="toggle(task)">
+
+        <div class="title">{{task.title}}</div>
+
         <div>{{task.created_at | date:'dd-MM-yyyy'}}</div>
+
         <div>{{task.completed_at | date:'dd-MM-yyyy'}}</div>
-        <div><span class="badge badge-closed">closed</span></div>
-        <span class="del-btn" (click)="deleteTask(task)"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg>️</span>
+
+        <div>
+          <span class="badge badge-closed">closed</span>
+        </div>
+
+        <span class="del-btn" (click)="deleteTask(task)">🗑</span>
+
       </div>
     </ng-container>
+
   </div>
 </div>
