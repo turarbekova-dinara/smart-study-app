@@ -1,0 +1,22 @@
+<div class="courses-page">
+  <h2 class="page-title">Available Courses</h2>
+
+  <div class="courses-grid">
+    @for (course of courses; track course.title) {
+      <div class="course-card">
+        <div class="video-container">
+          <iframe
+            [src]="getSafeUrl(course.id)"
+            frameborder="0"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="course-details">
+          <span class="badge">{{ course.category }}</span>
+          <h3>{{ course.title }}</h3>
+          <p>Learn the fundamentals of {{ course.title.toLowerCase() }}</p>
+        </div>
+      </div>
+    }
+  </div>
+</div>

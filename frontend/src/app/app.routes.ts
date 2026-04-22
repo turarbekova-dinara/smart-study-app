@@ -7,6 +7,7 @@ import { NotesComponent } from './pages/notes/notes';
 import { CalendarComponent } from './pages/calendar/calendar';
 import { MusicComponent } from './pages/music/music';
 import { RegisterComponent } from './pages/register/register.component';
+import { CoursesComponent} from './pages/courses/courses.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -23,6 +24,7 @@ export const routes: Routes = [
       { path: 'notes', component: NotesComponent },
       { path: 'calendar', component: CalendarComponent },
       { path: 'music', component: MusicComponent },
+      { path: 'courses', component: CoursesComponent},
     ]
   }
 ];
