@@ -1,1 +1,72 @@
-<p>music works!</p>
+<div class="music-page">
+
+  <!-- шапка -->
+  <div class="hero">
+    <img src="images/study-girl.jpg" alt="studying" class="hero-img">
+    <div class="hero-overlay">
+      <h1>Songs for Studying</h1>
+      <p>Focus. Relax. Learn.</p>
+    </div>
+  </div>
+
+  <!-- категории -->
+  <div class="categories">
+    <button *ngFor="let cat of categories"
+            (click)="selectCategory(cat)"
+            [class.active]="selectedCategory === cat">
+      {{ cat }}
+    </button>
+  </div>
+
+  <!-- список треков -->
+  <div class="track-list">
+    <div *ngFor="let track of filteredTracks; let i = index"
+         class="track-item"
+         [class.playing]="currentTrack?.id === track.id"
+         (click)="playTrack(track)">
+
+      <div class="track-num">
+        <span *ngIf="currentTrack?.id !== track.id">{{ i + 1 }}</span>
+        <span *ngIf="currentTrack?.id === track.id" class="playing-icon">
+          {{ isPlaying ? '▶' : '⏸' }}
+        </span>
+      </div>
+
+      <div class="track-info">
+        <span class="track-title">{{ track.title }}</span>
+        <span class="track-category">{{ track.category }}</span>
+      </div>
+
+      <div class="track-duration">--:--</div>
+    </div>
+  </div>
+
+  <!-- плеер снизу -->
+  <div class="player" *ngIf="currentTrack">
+    <div class="player-info">
+      <span class="player-title">{{ currentTrack.title }}</span>
+      <span class="player-category">{{ currentTrack.category }}</span>
+    </div>
+
+    <div class="player-controls">
+      <button (click)="prevTrack()">⏮</button>
+      <button class="play-btn" (click)="togglePlay()">
+        {{ isPlaying ? '⏸' : '▶' }}
+      </button>
+      <button (click)="nextTrack()">⏭</button>
+    </div>
+
+    <div class="player-progress">
+      <span>{{ formatTime(currentTime) }}</span>
+      <input type="range" min="0" max="100" [value]="progress" (input)="onSeek($event)">
+      <span>{{ formatTime(duration) }}</span>
+    </div>
+
+    <div class="player-volume">
+      🔊
+      <input type="range" min="0" max="1" step="0.01"
+             [value]="volume" (input)="onVolumeChange($event)">
+    </div>
+  </div>
+
+</div>
