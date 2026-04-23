@@ -19,7 +19,9 @@ def notes_list(request):
       serializer.save(user=request.user)
       return Response(serializer.data)
     return Response(serializer.errors)
-@api_view(['DELETE'])
+
+
+@api_view([ 'DELETE'])
 @permission_classes([IsAuthenticated])
 def delete_note(request, pk):
   note = Note.objects.get(id=pk, user=request.user)

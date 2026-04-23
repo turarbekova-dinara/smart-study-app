@@ -8,6 +8,7 @@ import { CalendarComponent } from './pages/calendar/calendar';
 import { MusicComponent } from './pages/music/music';
 import { RegisterComponent } from './pages/register/register.component';
 import { CoursesComponent} from './pages/courses/courses.component';
+import { PomodoroComponent } from './pages/pomodoro/pomodoro.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -25,6 +26,7 @@ export const routes: Routes = [
       { path: 'calendar', component: CalendarComponent },
       { path: 'music', component: MusicComponent },
       { path: 'courses', component: CoursesComponent},
+      { path: 'pomodoro', component: PomodoroComponent },
     ]
   }
 ];

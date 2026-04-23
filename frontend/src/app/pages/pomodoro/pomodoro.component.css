@@ -1,0 +1,184 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.card {
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 28px;
+  padding: 40px;
+  width: 380px;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+}
+
+.modes {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+.modes button {
+  padding: 8px 24px;
+  border-radius: 20px;
+  border: none;
+  background: rgba(0,0,0,0.08);
+  color: #555;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.modes button.active {
+  background: #7c3aed;
+  color: white;
+  box-shadow: 0 4px 12px rgba(124,58,237,0.35);
+}
+
+.modes .break-btn.active {
+  background: #059669;
+  box-shadow: 0 4px 12px rgba(5,150,105,0.35);
+}
+
+.ring-wrap {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  margin: 0 auto 28px;
+}
+
+.ring-wrap svg {
+  width: 220px;
+  height: 220px;
+  transform: rotate(-90deg);
+}
+
+.ring-bg {
+  fill: none;
+  stroke: rgba(0,0,0,0.08);
+  stroke-width: 10;
+}
+
+.ring-fill {
+  fill: none;
+  stroke: #7c3aed;
+  stroke-width: 10;
+  stroke-linecap: round;
+  stroke-dasharray: 534;
+  stroke-dashoffset: 534;
+  transition: stroke-dashoffset 1s linear;
+}
+
+.ring-fill.break-ring {
+  stroke: #059669;
+}
+
+.ring-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.ring-label {
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 4px;
+}
+
+.ring-time {
+  font-size: 44px;
+  font-weight: 700;
+  color: #222;
+  letter-spacing: 2px;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.main-btn {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  border: none;
+  background: #7c3aed;
+  color: white;
+  font-size: 26px;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(124,58,237,0.45);
+  transition: transform 0.2s, background 0.2s;
+}
+
+.main-btn:hover { transform: scale(1.08); }
+.main-btn.running { background: #6d28d9; }
+
+.ctrl-btn {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.12);
+  background: rgba(0,0,0,0.05);
+  color: #555;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.ctrl-btn:hover { background: rgba(0,0,0,0.1); }
+
+.settings {
+  border-top: 1px solid rgba(0,0,0,0.08);
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.setting-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: #555;
+  font-weight: 600;
+}
+
+.setting-btns {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.setting-btns button {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.12);
+  background: rgba(0,0,0,0.05);
+  color: #333;
+  font-size: 18px;
+  cursor: pointer;
+  line-height: 1;
+  transition: background 0.2s;
+}
+
+.setting-btns button:hover { background: rgba(0,0,0,0.1); }
+
+.setting-btns span {
+  min-width: 52px;
+  text-align: center;
+  font-weight: 700;
+  color: #333;
+}

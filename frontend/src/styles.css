@@ -2,14 +2,15 @@
 
 body {
   margin: 0;
-  height: 100vh;
-  background: url('/assets/fon.jpg') no-repeat;
+  min-height: 100vh;
+
+  background-image: url('/assets/fon.jpg');
   background-size: cover;
   background-position: center;
-  font-family: 'Montserrat', sans-serif;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 
-  background-image: url('/assets/bg.jpg'); /* сенің сурет */
-  background-repeat: no-repeat; /* қайталанбайды */
+  font-family: 'Montserrat', sans-serif;
 }
 
 * {
@@ -36,7 +37,6 @@ body {
   background: url('/assets/fon.jpg') no-repeat;
   background-size: cover;
   background-position: center;
-  filter: brightness(0.6);
   z-index: 1;
 }
 
@@ -288,13 +288,6 @@ body {
   --text-color: #e0e0e0;
   --panel-bg: #1e1e1e;
   --accent-color: #bb86fc;
-}
-
-body {
-  height: 100%;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  transition: all 0.3s ease;
 }
 
 .main-layout{

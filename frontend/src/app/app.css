@@ -21,3 +21,47 @@ app-right-panel {
   width: 250px;
   background: #2a2a40;
 }
+.mini-timer {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(124, 58, 237, 0.92);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 50px;
+  box-shadow: 0 4px 20px rgba(124,58,237,0.4);
+  z-index: 9999;
+  backdrop-filter: blur(10px);
+  transition: background 0.3s;
+}
+
+.mini-timer.break {
+  background: rgba(5, 150, 105, 0.92);
+  box-shadow: 0 4px 20px rgba(5,150,105,0.4);
+}
+
+.mini-time {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  min-width: 50px;
+}
+
+.mini-timer button {
+  background: rgba(255,255,255,0.2);
+  border: none;
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.mini-timer button:hover {
+  background: rgba(255,255,255,0.35);
+}

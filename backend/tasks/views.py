@@ -39,11 +39,11 @@ def update_task(request, id):
 
   completed = request.data.get("completed")
 
-  if completed:
-    task.completed = True
+  task.completed = True if str(completed).lower() == "true" else False
+
+  if task.completed:
     task.completed_at = timezone.now()
   else:
-    task.completed = False
     task.completed_at = None
 
   task.save()

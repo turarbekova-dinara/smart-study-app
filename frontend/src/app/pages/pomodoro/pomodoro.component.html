@@ -1,0 +1,50 @@
+<div class="page">
+  <div class="card">
+
+    <div class="modes">
+      <button [class.active]="!(ps.isBreak$ | async)" (click)="ps.reset()">Work</button>
+      <button [class.active]="ps.isBreak$ | async" class="break-btn">Break</button>
+    </div>
+
+    <div class="ring-wrap">
+      <svg viewBox="0 0 200 200">
+        <circle cx="100" cy="100" r="85" class="ring-bg"/>
+        <circle cx="100" cy="100" r="85" class="ring-fill"
+                [class.break-ring]="ps.isBreak$ | async"
+                [style.stroke-dashoffset]="534 - (534 * (ps.progress$ | async)! / 100)"/>
+      </svg>
+      <div class="ring-center">
+        <div class="ring-label">{{ (ps.isBreak$ | async) ? '☕ Break' : '📚 Work' }}</div>
+        <div class="ring-time">{{ ps.display }}</div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button class="ctrl-btn" (click)="ps.reset()">↺</button>
+      <button class="main-btn" [class.running]="ps.isRunning$ | async" (click)="ps.startStop()">
+        {{ (ps.isRunning$ | async) ? '⏸' : '▶' }}
+      </button>
+      <button class="ctrl-btn" (click)="ps.nextSession()">⏭</button>
+    </div>
+
+    <div class="settings">
+      <div class="setting-row">
+        <span>Work</span>
+        <div class="setting-btns">
+          <button (click)="workInput = workInput > 1 ? workInput - 1 : 1; onWorkChange()">−</button>
+          <span>{{ workInput }} min</span>
+          <button (click)="workInput = workInput + 1; onWorkChange()">+</button>
+        </div>
+      </div>
+      <div class="setting-row">
+        <span>Break</span>
+        <div class="setting-btns">
+          <button (click)="breakInput = breakInput > 1 ? breakInput - 1 : 1; onBreakChange()">−</button>
+          <span>{{ breakInput }} min</span>
+          <button (click)="breakInput = breakInput + 1; onBreakChange()">+</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
